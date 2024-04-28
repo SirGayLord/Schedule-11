@@ -23,12 +23,12 @@ namespace Schedule
         {
             db = new LiteDatabase(@"shedule_base.db");
 
-            teachers = db.GetCollection<Teacher>("teachers");
-            groups = db.GetCollection<Group>("groups");
-            rooms = db.GetCollection<Room>("rooms");
-            discs = db.GetCollection<Discipline>("disciplines");
-            elems = db.GetCollection<Elem>("elems");
-            
+            var teachers = db.GetCollection<Teacher>("teachers").FindAll();
+            var groups = db.GetCollection<Group>("groups").FindAll();
+            var rooms = db.GetCollection<Room>("rooms").FindAll();
+            var discs = db.GetCollection<Discipline>("disciplines").FindAll();
+            var elems = db.GetCollection<Elem>("elems").FindAll();
+
         }
     }
 }

@@ -32,13 +32,13 @@ namespace Schedule
             dt.Columns.Add(new DataColumn("Часы", typeof(String)));
             dt.Columns.Add(new DataColumn("O", typeof(Pair)));
 
-            foreach (var pair in Pair.getAllPairs())
+            foreach (var Pair in Pair.getAllPairs())
             {
                 DataRow row = dt.NewRow();
-                row["День"] = pair.getWeekDayAsStr();
-                row["Пара"] = pair.PairN;
-                row["Часы"] = pair.getPairHours();
-                row["O"] = pair;
+                row["День"] = Pair.getWeekDayAsStr();
+                row["Пара"] = Pair.PairN;
+                row["Часы"] = Pair.getPairHours();
+                row["O"] = Pair;
                 dt.Rows.Add(row);
             }
 

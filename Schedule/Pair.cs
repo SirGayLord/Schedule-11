@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,10 @@ namespace Schedule
         {
             pairnames = new Dictionary<int, string>();
 
-            XDocument doc = XDocument.Load("pairs.xml");
+            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "pairs.xml");
+
+            // Загрузить файл XML
+            XDocument doc = XDocument.Load(filePath);
             foreach (var elem in doc.Element("pairs").Elements("pair"))
             {
                 pairnames.Add(Int32.Parse(elem.Element("n").Value), elem.Element("text").Value);
